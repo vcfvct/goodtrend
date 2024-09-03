@@ -1,8 +1,9 @@
 # Evershop
 
 ## DB
-
+- connect as root: `sudo -u postgres psql`
 - `CREATE USER goodtrend PASSWORD 'xxx' CREATEDB;`
+  - for pg 16, need to do `sudo vim /etc/postgresql/16/main/pg_hba.conf` and append `local   all             goodtrend                                md5`, then `sudo systemctl restart postgresql` to use the password otherwise will get `FATAL:  Peer authentication failed for user` error.
 - `CREATE DATABASE my_evershop`
 - connect in cli: `psql -U goodtrend -d my_evershop`
 - disable ssl `sudo vim /etc/postgresql/14/main/postgresql.conf` and make `ssl = off`. The 14 is the current version, could be 15 or higher.
@@ -82,3 +83,9 @@ Need to add a bucket policy to make the bucket public accessible, otherwise by d
   ]
 }
 ```
+
+## Deployment
+[reference](https://evershop.io/docs/development/deployment/deploy-evershop-to-aws). need to setup ngnix and start service with pm2.
+  - `npm run build`
+  - `npm install -g pm2`
+  - `pm2 start npm -- start`
