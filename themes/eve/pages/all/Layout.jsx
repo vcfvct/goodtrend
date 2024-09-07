@@ -113,7 +113,7 @@ export default function Layout() {
           </div>
           <div className="self-center">
             <div className="copyright text-center md:text-right text-textSubdued">
-              <span>Copyright © {new Date().getFullYear()} Good Trend Trading</span>
+              <span>Copyright © {new Date().getFullYear()} Good Trend Promos</span>
             </div>
           </div>
         </div>

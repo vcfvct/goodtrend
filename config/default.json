@@ -10,9 +10,9 @@
         "priority": 10
       },
       {
-        "name": "s3-image-deletion",
-        "resolve": "evershop/extensions/s3-image-deletion",
-        "enabled": false,
+        "name": "contact",
+        "resolve": "extensions/contact",
+        "enabled": true,
         "priority": 20
       }
     ]

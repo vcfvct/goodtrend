@@ -6,29 +6,29 @@ function FeaturedCategories() {
       <div className="mb-2 mt-3">
         <h2 className="text-center">OUR CATEGORIES</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        <div className="relative col-span-1 row-span-2 men-cat">
-          <img src="/men-banner.jpg" alt="Shop men" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="relative col-span-1 row-span-1 men-cat">
+          <img src="/bags.jpg" alt="Shop bags" />
           <a
             className="absolute underline top-[20px] left-[20px] bg-white px-2"
-            href="#">
-            SHOP OFFICE
+            href="/bags">
+            SHOP Bags
           </a>
         </div>
         <div className="relative col-span-1 row-span-1 women-cat">
-          <img src="/women-banner.jpg" alt="Shop women" />
+          <img src="/drinkwares.jpg" alt="Shop DrinkWare" />
           <a
             className="absolute underline top-[20px] left-[20px] bg-white px-2"
-            href="#">
-            SHOP GIFT
+            href="/drinkwares">
+            SHOP DrinkWare
           </a>
         </div>
         <div className="relative col-span-1 row-span-1 kid-cat">
-          <img src="/kid-banner.jpg" alt="Shop kids" />
+          <img src="/tech-accessories.jpg" alt="Shop Tech Accessories" />
           <a
             className="absolute underline top-[20px] left-[20px] bg-white px-2"
-            href="#">
-            SHOP KIDS
+            href="/tech-accessories">
+            SHOP Tech Accessories
           </a>
         </div>
       </div>
