@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 module.exports = async (req, res, delegate, next) => {
-	const { name, email, inquiry } = req.body;
+	const { name, phone, email, inquiry } = req.body;
 	// Simple validation
 	if (!email || !inquiry) {
 		return res.status(400).json({ message: "Email and Inquiry are required." });
@@ -28,6 +28,7 @@ module.exports = async (req, res, delegate, next) => {
 		You have received a new inquiry.
 
 		Name: ${name || 'Not provided'}
+		Phone #: ${phone || 'Not provided'}
 		Email: ${email}
 		Inquiry: ${inquiry}
 		`
