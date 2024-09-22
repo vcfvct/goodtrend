@@ -15,6 +15,23 @@
 - `\l` or `\list` to list database
 - `\du` to list user
 
+### data migration
+
+#### export
+
+- whole db: `pg_dump -U goodtrend -d my_evershop > my_evershop.sql`
+- a specific table `pg_dump -U goodtrend -d my_evershop -t widget> widget.sql`
+
+#### import
+
+- drop db: `dropdb -U goodtrend my_evershop`
+- create db: `createdb -U goodtrend my_evershop`
+- whole db: `psql -U goodtrend -d my_evershop < my_evershop.sql`
+- a specific table
+  - `psql -U goodtrend -d my_evershop -c "TRUNCATE widget"`
+  - `psql -U goodtrend -d my_evershop -f widget.sql`
+
+
 ### tables
 
 Schema | Name | Type | Owner
@@ -98,3 +115,9 @@ Need to add a bucket policy to make the bucket public accessible, otherwise by d
 - domain name transfer [from namecheap to cloudflare](https://www.namecheap.com/support/knowledgebase/article.aspx/9607/2210/how-to-set-up-dns-records-for-your-domain-in-a-cloudflare-account/#:~:text=There%20are%20two%20ways).
   - SSL/TSL configuration: `Full(Strict)`, otherwise naked domain(without www) will probably get redirect loop for assets like js/css/images which results in site load incorrectly.
 - Business Mail Setup: [cloudflare route with gmail](https://www.youtube.com/watch?v=aYObO0SETnw).
+
+
+## scp sql files
+
+- copy from remote to local: `scp user@your-ip:~/my_evershop.sql .`
+- copy from local to remote: `scp my_evershop.sql user@your-ip:~/my_evershop.sql`

@@ -53,10 +53,10 @@ FeaturedProducts.defaultProps = {
   featuredProducts: [],
 };
 
-export const layout = {
-  areaId: "content",
-  sortOrder: 15,
-};
+// export const layout = {
+//   areaId: "content",
+//   sortOrder: 15,
+// };
 
 export const query = `
   query query {
