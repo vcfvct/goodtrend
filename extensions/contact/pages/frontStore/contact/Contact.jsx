@@ -1,5 +1,13 @@
 import React, { useState } from "react";
 import { toast } from 'react-toastify';
+import {
+	NAME_MAX_LENGTH,
+	INQUIRY_MIN_LENGTH,
+	INQUIRY_MAX_LENGTH,
+	validateEmail,
+	validateName,
+	validateInquiry
+} from "./validation";
 import "./Contact.scss";
 
 export default function ContactForm() {
@@ -11,11 +19,6 @@ export default function ContactForm() {
 	});
 	const [errors, setErrors] = useState({});
 
-	const validateEmail = (email) => {
-		const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation regex
-		return re.test(String(email).toLowerCase());
-	};
-
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 		setErrors({ ...errors, [e.target.name]: '' }); // Clear any error on change
@@ -25,6 +28,11 @@ export default function ContactForm() {
 		e.preventDefault();
 		let validationErrors = {};
 
+		const nameError = validateName(formData.name);
+		if (nameError) {
+			validationErrors.name = nameError;
+		}
+
 		// Email validation
 		if (!formData.email) {
 			validationErrors.email = "Email is required.";
@@ -32,9 +40,9 @@ export default function ContactForm() {
 			validationErrors.email = "Please enter a valid email.";
 		}
 
-		// Inquiry validation
-		if (!formData.inquiry) {
-			validationErrors.inquiry = "Inquiry is required.";
+		const inquiryError = validateInquiry(formData.inquiry);
+		if (inquiryError) {
+			validationErrors.inquiry = inquiryError;
 		}
 
 		if (Object.keys(validationErrors).length > 0) {
@@ -80,13 +88,17 @@ export default function ContactForm() {
 					<form onSubmit={handleSubmit} className="space-y-4" id="contact-form">
 						<div>
 							<label htmlFor="name" className="block text-md font-medium text-gray-700">Name</label>
+							{errors.name && (
+								<p className="text-red-500 text-sm mt-1">{errors.name}</p>
+							)}
 							<input
 								type="text"
 								id="name"
 								name="name"
 								value={formData.name}
 								onChange={handleChange}
-								className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+								className={`mt-1 block w-full px-3 py-2 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md`}
+								maxLength={NAME_MAX_LENGTH}
 							/>
 						</div>
 
@@ -129,6 +141,8 @@ export default function ContactForm() {
 								onChange={handleChange}
 								rows="4"
 								className={`mt-1 block w-full px-3 py-2 border ${errors.inquiry ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md`}
+								minLength={INQUIRY_MIN_LENGTH}
+								maxLength={INQUIRY_MAX_LENGTH}
 							></textarea>
 						</div>
 
