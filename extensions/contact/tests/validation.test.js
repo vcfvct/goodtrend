@@ -4,7 +4,6 @@ import {
 	NAME_REPEAT_THRESHOLD,
 	INQUIRY_MIN_LENGTH,
 	INQUIRY_MIN_WORDS,
-	INQUIRY_REPEAT_THRESHOLD,
 	validateEmail,
 	validateName,
 	validateInquiry
