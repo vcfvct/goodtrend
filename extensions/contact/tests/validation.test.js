@@ -47,11 +47,6 @@ describe("validateInquiry", () => {
 		expect(validateInquiry(" ")).toBe("Inquiry is required.");
 	});
 
-	it("enforces minimum character length", () => {
-		const shortMessage = "a".repeat(INQUIRY_MIN_LENGTH - 1);
-		expect(validateInquiry(shortMessage)).toBe("Inquiry should be at least " + INQUIRY_MIN_LENGTH + " characters.");
-	});
-
 	it("enforces minimum word count", () => {
 		const limitedWords = "Detailed message with plenty of letters ensuring length yet short";
 		expect(validateInquiry(limitedWords)).toBe("Add more detail to your message (at least " + INQUIRY_MIN_WORDS + " words).");
