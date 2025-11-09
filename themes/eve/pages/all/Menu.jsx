@@ -15,7 +15,7 @@ export default function Menu({ menu: { items } }) {
         ))}
         <li className="nav-item">
           <a className="nav-link hover:underline" href={"/contact"}>
-            Contact
+            Contact Us
           </a>
         </li>
       </ul>
