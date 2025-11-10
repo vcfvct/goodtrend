@@ -31,7 +31,6 @@
   - `psql -U goodtrend -d my_evershop -c "TRUNCATE widget"`
   - `psql -U goodtrend -d my_evershop -f widget.sql`
 
-
 ### tables
 
 Schema | Name | Type | Owner
@@ -106,16 +105,20 @@ Need to add a bucket policy to make the bucket public accessible, otherwise by d
 
 [reference](https://evershop.io/docs/development/deployment/deploy-evershop-to-aws). need to setup ngnix and start service with pm2.
 
-- `npm run build`
 - `npm install -g pm2`
 - `pm2 start npm -- start`
+
+### update
+
+- `git pull` to get latest code
+- `npm run build`
+- `pm2 reload 0` to reload the server to serve the latest build.
 
 ## Mail server
 
 - domain name transfer [from namecheap to cloudflare](https://www.namecheap.com/support/knowledgebase/article.aspx/9607/2210/how-to-set-up-dns-records-for-your-domain-in-a-cloudflare-account/#:~:text=There%20are%20two%20ways).
   - SSL/TSL configuration: `Full(Strict)`, otherwise naked domain(without www) will probably get redirect loop for assets like js/css/images which results in site load incorrectly.
 - Business Mail Setup: [cloudflare route with gmail](https://www.youtube.com/watch?v=aYObO0SETnw).
-
 
 ## scp sql files
 
