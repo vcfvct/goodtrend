@@ -4,3 +4,5 @@ node_modules
 .env
 extensions/**/dist
 themes/**/dist
+extensions/**/dist
+themes/**/dist
