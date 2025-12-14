@@ -2,3 +2,5 @@
 .log
 node_modules
 .env
+extensions/**/dist
+themes/**/dist
