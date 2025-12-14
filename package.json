@@ -4,7 +4,11 @@
   "main": "index.js",
   "scripts": {
     "setup": "evershop install",
-    "build": "evershop build",
+    "build": "npm run build:extensions && npm run build:theme:eve && evershop build",
+    "build:extensions": "npm run build:s3_file_storage && npm run build:contact_extension",
+    "build:s3_file_storage": "npm --prefix node_modules/@evershop/s3_file_storage run compile",
+    "build:contact_extension": "rm -rf extensions/contact/dist && mkdir -p extensions/contact/dist && cp -R extensions/contact/src extensions/contact/dist/",
+    "build:theme:eve": "rm -rf themes/eve/dist && mkdir -p themes/eve/dist && cp -R themes/eve/src themes/eve/dist/ && cp -R themes/eve/public themes/eve/dist/public && cp themes/eve/tailwind.config.js themes/eve/dist/tailwind.config.js",
     "start": "evershop start",
     "start:debug": "evershop start --debug",
     "dev": "evershop dev",
@@ -25,7 +29,12 @@
     "nodemailer": "^6.9.15"
   },
   "devDependencies": {
-    "patch-package": "^8.0.1",
+    "@swc/cli": "^0.7.9",
+    "@swc/core": "^1.15.4",
+    "@types/express": "^4.17.23",
+    "@types/multer": "^1.4.13",
+    "patch-package": "^8.0.0",
+    "typescript": "^5.9.2",
     "vitest": "^1.6.1"
   }
 }
