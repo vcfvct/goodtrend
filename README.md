@@ -4,6 +4,17 @@
 
 This project targets Node.js LTS (see `.nvmrc`). EverShop v2.x is known to fail on Node v24 in this environment.
 
+## Smoke checklist (after upgrade)
+
+- Install: `npm ci` (or `npm install`)
+- Setup: `npm run setup`
+- Build: `npm run build`
+- Tests: `npm test`
+- Manual:
+  - Load homepage and navigate categories/products
+  - Confirm product images load from S3
+  - Submit `/contact` form and confirm email is sent
+
 ## DB
 
 - connect as root: `sudo -u postgres psql`
