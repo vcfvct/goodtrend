@@ -10,6 +10,7 @@
     "dev": "evershop dev",
     "user:create": "evershop user:create",
     "user:changePassword": "evershop user:changePassword",
+    "postinstall": "patch-package",
     "test": "vitest run"
   },
   "author": "Han Li",
@@ -24,6 +25,7 @@
     "nodemailer": "^6.9.15"
   },
   "devDependencies": {
+    "patch-package": "^8.0.1",
     "vitest": "^1.6.1"
   }
 }
