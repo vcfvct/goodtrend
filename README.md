@@ -22,6 +22,16 @@ Set these in `.env`:
 - `SMTP_USER`
 - `SMTP_PASSWORD`
 
+## Smoke checklist (after upgrade)
+
+- Install: `npm ci` (or `npm install`)
+- Setup: `npm run setup`
+- Build: `npm run build`
+- Tests: `npm test`
+- Manual:
+  - Load homepage and navigate categories/products
+  - Confirm product images load from S3
+  - Submit `/contact` form and confirm email is sent
 ## DB
 
 - connect as root: `sudo -u postgres psql`
