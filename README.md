@@ -1,5 +1,9 @@
 # Evershop
 
+## Node version
+
+This project targets Node.js LTS (see `.nvmrc`). EverShop v2.x is known to fail on Node v24 in this environment.
+
 ## DB
 
 - connect as root: `sudo -u postgres psql`
