@@ -24,6 +24,8 @@
     "nodemailer": "^6.9.15"
   },
   "devDependencies": {
+    "@swc/cli": "^0.7.9",
+    "@swc/core": "^1.15.4",
     "vitest": "^1.6.1"
   }
 }
