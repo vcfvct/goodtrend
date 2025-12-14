@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-module.exports = async (req, res, delegate, next) => {
+module.exports = async (req, res, next) => {
 	const { name, phone, email, inquiry } = req.body;
 	// Simple validation
 	if (!email || !inquiry) {
