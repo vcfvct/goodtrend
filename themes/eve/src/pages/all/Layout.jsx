@@ -121,8 +121,3 @@ export default function Layout() {
     </>
   );
 }
-
-export const layout = {
-  areaId: "body",
-  sortOrder: 1,
-};

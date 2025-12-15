@@ -11,6 +11,7 @@
     "build:theme:eve": "rm -rf themes/eve/dist && mkdir -p themes/eve/dist && cp -R themes/eve/src/. themes/eve/dist/ && cp -R themes/eve/public themes/eve/dist/public && cp themes/eve/tailwind.config.js themes/eve/dist/tailwind.config.js",
     "start": "evershop start",
     "start:debug": "evershop start --debug",
+    "predev": "rm -rf themes/eve/dist extensions/contact/dist",
     "dev": "evershop dev",
     "user:create": "evershop user:create",
     "user:changePassword": "evershop user:changePassword",
