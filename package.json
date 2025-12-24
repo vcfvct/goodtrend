@@ -7,7 +7,7 @@
     "build": "npm run build:extensions && npm run build:theme:eve && evershop build",
     "build:extensions": "npm run build:s3_file_storage && npm run build:contact_extension",
     "build:s3_file_storage": "npm --prefix node_modules/@evershop/s3_file_storage run compile",
-    "build:contact_extension": "rm -rf extensions/contact/dist && mkdir -p extensions/contact/dist && cp -R extensions/contact/src/api extensions/contact/src/pages extensions/contact/src/tests extensions/contact/dist/",
+    "build:contact_extension": "rm -rf extensions/contact/dist && cd extensions/contact && npx swc src -d dist --config-file .swcrc --copy-files && mv dist/src/* dist/ && rmdir dist/src",
     "build:theme:eve": "rm -rf themes/eve/dist && cd themes/eve && npx swc src -d dist --config-file .swcrc --copy-files && mv dist/src/* dist/ && rmdir dist/src",
     "start": "evershop start",
     "start:debug": "evershop start --debug",
