@@ -8,7 +8,7 @@
     "build:extensions": "npm run build:s3_file_storage && npm run build:contact_extension",
     "build:s3_file_storage": "npm --prefix node_modules/@evershop/s3_file_storage run compile",
     "build:contact_extension": "rm -rf extensions/contact/dist && mkdir -p extensions/contact/dist && cp -R extensions/contact/src/api extensions/contact/src/pages extensions/contact/src/tests extensions/contact/dist/",
-    "build:theme:eve": "node scripts/build-theme-eve.js",
+    "build:theme:eve": "rm -rf themes/eve/dist && cd themes/eve && npx swc src -d dist --config-file .swcrc --copy-files && mv dist/src/* dist/ && rmdir dist/src",
     "start": "evershop start",
     "start:debug": "evershop start --debug",
     "predev": "rm -rf themes/eve/dist extensions/contact/dist",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@swc/cli": "^0.7.9",
-    "@swc/core": "^1.15.4",
+    "@swc/core": "^1.15.7",
     "@types/express": "^4.17.23",
     "@types/multer": "^1.4.13",
     "typescript": "^5.9.2",
