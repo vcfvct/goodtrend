@@ -19,7 +19,7 @@ export function Header() {
           {
             component: { default: Area },
             props: {
-              id: "icon-wrapper",
+              id: "headerMiddleRight",
               className: "icon-wrapper flex justify-between space-x-4",
             },
             sortOrder: 20,
