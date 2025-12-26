@@ -33,7 +33,7 @@ const PAYMENT_ICONS_HTML = `
 </div>
 `;
 
-export function Footer() {
+export const Footer: React.FC = () => {
   return React.createElement(
     "div",
     { className: "footer" },

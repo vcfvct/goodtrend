@@ -1,6 +1,6 @@
 import React from "react";
 
-function FreeShippingBar() {
+const FreeShippingBar: React.FC = () => {
   return (
     <div className="page-width">
       <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x border-divider border my-12">

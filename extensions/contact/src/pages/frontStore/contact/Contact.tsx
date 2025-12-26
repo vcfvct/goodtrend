@@ -10,7 +10,7 @@ export const INQUIRY_MAX_LENGTH = 1000;
 export const INQUIRY_MIN_WORDS = 20;
 export const INQUIRY_REPEAT_THRESHOLD = 7;
 
-const hasRepeatedSequence = (value, threshold) => {
+const hasRepeatedSequence = (value: string, threshold: number): boolean => {
 	if (threshold < 2) {
 		return false;
 	}
@@ -18,12 +18,12 @@ const hasRepeatedSequence = (value, threshold) => {
 	return repeatRegex.test(value);
 };
 
-export const validateEmail = (email) => {
+export const validateEmail = (email: string): boolean => {
 	const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 	return re.test(String(email).toLowerCase());
 };
 
-export const validateName = (name) => {
+export const validateName = (name: string): string => {
 	const value = name.trim();
 	if (!value) {
 		return "Name is required.";
@@ -41,7 +41,7 @@ export const validateName = (name) => {
 	return "";
 };
 
-export const validateInquiry = (inquiry) => {
+export const validateInquiry = (inquiry: string): string => {
 	const value = inquiry.trim();
 	if (!value) {
 		return "Inquiry is required.";
@@ -58,22 +58,27 @@ export const validateInquiry = (inquiry) => {
 
 
 export default function ContactForm() {
-	const [formData, setFormData] = useState({
+	const [formData, setFormData] = useState<{
+		name: string;
+		phone: string;
+		email: string;
+		inquiry: string;
+	}>({
 		name: '',
 		phone: '',
 		email: '',
 		inquiry: ''
 	});
-	const [errors, setErrors] = useState({});
+	const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-	const handleChange = (e) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 		setErrors({ ...errors, [e.target.name]: '' }); // Clear any error on change
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		let validationErrors = {};
+		let validationErrors: { [key: string]: string } = {};
 
 		const nameError = validateName(formData.name);
 		if (nameError) {

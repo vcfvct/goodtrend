@@ -1,9 +1,40 @@
 import { ProductList } from "@components/frontStore/catalog/ProductList.js";
 import { _ } from "@evershop/evershop/src/lib/locale/translate";
-import PropTypes from "prop-types";
 import React from "react";
 
-export default function FeaturedProducts({ collection }) {
+interface Product {
+  productId: number;
+  name: string;
+  price: {
+    regular: {
+      value: number;
+      text: string;
+    };
+    special: {
+      value: number;
+      text: string;
+    };
+  };
+  image: {
+    alt: string;
+    url: string;
+  };
+  url: string;
+}
+
+interface Collection {
+  collectionId: number;
+  name: string;
+  products: {
+    items: Product[];
+  };
+}
+
+interface FeaturedProductsProps {
+  collection: Collection;
+}
+
+export default function FeaturedProducts({ collection }: FeaturedProductsProps) {
   if (!collection) {
     return null;
   }
@@ -18,36 +49,6 @@ export default function FeaturedProducts({ collection }) {
     </div>
   );
 }
-
-FeaturedProducts.propTypes = {
-  collection: PropTypes.shape({
-    collectionId: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    products: PropTypes.shape({
-      items: PropTypes.arrayOf(
-        PropTypes.shape({
-          productId: PropTypes.number.isRequired,
-          name: PropTypes.string.isRequired,
-          price: PropTypes.shape({
-            regular: PropTypes.shape({
-              value: PropTypes.number.isRequired,
-              text: PropTypes.string.isRequired,
-            }).isRequired,
-            special: PropTypes.shape({
-              value: PropTypes.number.isRequired,
-              text: PropTypes.string.isRequired,
-            }).isRequired,
-          }).isRequired,
-          image: PropTypes.shape({
-            alt: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-          }).isRequired,
-          url: PropTypes.string.isRequired,
-        })
-      ).isRequired,
-    }).isRequired,
-  }).isRequired,
-};
 
 FeaturedProducts.defaultProps = {
   featuredProducts: [],

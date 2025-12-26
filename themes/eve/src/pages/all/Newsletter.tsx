@@ -1,6 +1,6 @@
 import React from "react";
 
-function Newsletter() {
+const Newsletter: React.FC = () => {
   return (
     <div className="mt-[50px]">
       <div className="page-width">

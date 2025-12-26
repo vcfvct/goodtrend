@@ -1,7 +1,15 @@
+import { Request, Response, NextFunction } from 'express';
 const nodemailer = require('nodemailer');
 
-module.exports = async (req, res, next) => {
-	const { name, phone, email, inquiry } = req.body;
+interface ContactRequestBody {
+    name?: string;
+    phone?: string;
+    email: string;
+    inquiry: string;
+}
+
+module.exports = async (req: Request, res: Response, next: NextFunction) => {
+	const { name, phone, email, inquiry } = req.body as ContactRequestBody;
 	// Simple validation
 	if (!email || !inquiry) {
 		return res.status(400).json({ message: "Email and Inquiry are required." });

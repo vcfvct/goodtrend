@@ -1,8 +1,18 @@
-import PropTypes from "prop-types";
 import React from "react";
 import "./MobileMenu.scss";
 
-export default function MobileMenu({ menu: { items } }) {
+interface MenuItem {
+  name: string;
+  url: string;
+}
+
+interface MobileMenuProps {
+  menu: {
+    items: MenuItem[];
+  };
+}
+
+export default function MobileMenu({ menu: { items } }: MobileMenuProps) {
   const [show, setShow] = React.useState(false);
 
   return (
