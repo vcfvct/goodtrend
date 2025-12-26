@@ -1,5 +1,40 @@
 # Evershop
 
+## Node version
+
+This project targets Node.js LTS (see `.nvmrc`). EverShop v2.x is known to fail on Node v24 in this environment.
+
+## Environment variables
+
+### S3 storage (`@evershop/s3_file_storage`)
+
+Set these in `.env`:
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_REGION`
+- `AWS_BUCKET_NAME`
+
+### Contact form email (custom extension)
+
+Set these in `.env`:
+
+- `SMTP_USER`
+- `SMTP_PASSWORD`
+
+## Smoke checklist (after upgrade)
+
+- Install: `npm ci` (or `npm install`)
+- Setup: `npm run setup`
+- Build: `npm run build`
+  - Note: The `build:theme:eve` script now uses `swc` to compile the theme's source code (JSX/React) into standard JavaScript in the `dist` folder. This is required for production mode as Evershop expects `.js` files. The command handles compilation and directory structure adjustments automatically.
+  - Note: Extensions (like `s3_file_storage` and `contact`) must be built separately before the main application build. This is because the core `evershop build` command expects extension code to be pre-compiled or prepared in a `dist` directory to be included in the final bundle. The `npm run build` command handles this sequence.
+    - Specifically, the `contact` extension is now also compiled using `swc` (similar to the theme) to ensure JSX files are transformed into JS files for production.
+- Tests: `npm test`
+- Manual:
+  - Load homepage and navigate categories/products
+  - Confirm product images load from S3
+  - Submit `/contact` form and confirm email is sent
 ## DB
 
 - connect as root: `sudo -u postgres psql`
