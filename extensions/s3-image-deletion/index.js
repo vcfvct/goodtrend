@@ -1,5 +1,5 @@
-const AWS = require('aws-sdk');
-const { on } = require('events');
+import AWS from 'aws-sdk';
+import { on } from 'events';
 
 const s3 = new AWS.S3();
 
@@ -20,7 +20,7 @@ async function handleImageDeletion(event) {
 // Listen to the product image deletion event
 on('productImage.delete', handleImageDeletion);
 
-module.exports = {
+export {
   deleteImageFromS3,
   handleImageDeletion
 };

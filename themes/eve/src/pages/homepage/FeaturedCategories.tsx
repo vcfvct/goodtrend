@@ -1,6 +1,6 @@
 import React from "react";
 
-function FeaturedCategories() {
+const FeaturedCategories: React.FC = () => {
   return (
     <div className="page-width">
       <div className="mb-8 mt-12">

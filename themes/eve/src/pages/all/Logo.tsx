@@ -1,6 +1,6 @@
 import React from "react";
 
-function Logo() {
+const Logo: React.FC = () => {
   return (
     <div>
       <a href="/">

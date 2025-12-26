@@ -1,7 +1,7 @@
 import React from "react";
 import "./MainBanner.scss";
 
-function MainBanner() {
+const MainBanner: React.FC = () => {
   return (
     <div className="main-banner-home flex items-center">
       <div className="page-width grid grid-cols-1 md:grid-cols-2 gap-2">

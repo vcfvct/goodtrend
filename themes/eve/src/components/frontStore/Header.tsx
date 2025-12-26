@@ -5,7 +5,7 @@ import "../../css/global.scss";
 import "../../pages/all/Layout.scss";
 import "../../pages/all/tailwind.scss";
 
-export function Header() {
+export const Header: React.FC = () => {
   return React.createElement(
     "div",
     { className: "header" },
