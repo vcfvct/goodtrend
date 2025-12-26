@@ -21,9 +21,6 @@
   "license": "ISC",
   "description": "",
   "type": "module",
-  "engines": {
-    "node": ">=20 <24"
-  },
   "dependencies": {
     "@evershop/evershop": "2.1.0",
     "@evershop/s3_file_storage": "2.1.0",
