@@ -20,6 +20,7 @@
   "author": "Han Li",
   "license": "ISC",
   "description": "",
+  "type": "module",
   "engines": {
     "node": ">=20 <24"
   },
