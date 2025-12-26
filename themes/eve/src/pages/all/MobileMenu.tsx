@@ -59,17 +59,6 @@ export default function MobileMenu({ menu: { items } }: MobileMenuProps) {
   );
 }
 
-MobileMenu.propTypes = {
-  menu: PropTypes.shape({
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-  }).isRequired,
-};
-
 // export const layout = {
 //   areaId: "icon-wrapper",
 //   sortOrder: 50,
