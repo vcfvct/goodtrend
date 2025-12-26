@@ -16,5 +16,16 @@
         "priority": 20
       }
     ]
+  },
+  "themeConfig": {
+    "headTags": {
+      "links": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "type": "image/x-icon"
+        }
+      ]
+    }
   }
 }
