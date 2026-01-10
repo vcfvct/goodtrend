@@ -132,7 +132,7 @@ export default function ContactForm() {
 					<h2 className="h1">Contact Us</h2>
 					<p>For any questions, contact us at.</p>
 					<p>Email📧: sales@goodtrendpromos.com</p>
-					<p>Phone☎️: 571 393 1345</p>
+					<p>Phone☎️: 571 393 1567</p>
 				</div>
 
 				<div className="px-2">
