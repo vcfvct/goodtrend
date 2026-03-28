@@ -31,6 +31,32 @@ Set these in `.env`:
   - Confirm product images load from S3
   - Submit `/contact` form and confirm email is sent
 
+## Local preview of production build
+
+`evershop start` sets `NODE_ENV=production`, which loads `config/production.json` containing the prod `shop.homeUrl` (`https://goodtrendpromos.com`). This causes admin and other URLs to point to the prod domain instead of localhost. Two options to override locally:
+
+### Option 1: `start:local` script (recommended)
+
+```bash
+npm run start:local
+```
+
+Uses `NODE_CONFIG` env var to override `shop.homeUrl` back to `http://localhost:3000`.
+
+### Option 2: `local-production.json` file
+
+Create `config/local-production.json` (gitignored):
+
+```json
+{
+  "shop": {
+    "homeUrl": "http://localhost:3000"
+  }
+}
+```
+
+Then run `npm start` as usual. `node-config` loads `local-production.json` after `production.json`, overriding the prod URL.
+
 ## DB
 
 - connect as root: `sudo -u postgres psql`

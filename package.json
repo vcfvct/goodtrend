@@ -10,6 +10,7 @@
     "build:contact_extension": "rm -rf extensions/contact/dist && cd extensions/contact/src && npx swc . -d ../dist --config-file ../.swcrc --copy-files",
     "build:theme:eve": "rm -rf themes/eve/dist && cd themes/eve/src && npx swc . -d ../dist --config-file ../.swcrc --copy-files",
     "start": "evershop start",
+    "start:local": "NODE_CONFIG='{\"shop\":{\"homeUrl\":\"http://localhost:3000\"}}' evershop start",
     "start:debug": "evershop start --debug",
     "predev": "rm -rf themes/eve/dist extensions/contact/dist",
     "dev": "evershop dev",
