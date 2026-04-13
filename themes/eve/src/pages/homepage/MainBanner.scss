@@ -3,24 +3,62 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right center;
-  height: 490px;
+  height: 520px;
   position: relative;
+  display: flex;
+  align-items: center;
 
-  .container {
-    z-index: 10;
+  @media screen and (min-width: 768px) {
+    height: 580px;
   }
-  .button {
-    margin-top: 27px;
+}
+
+.main-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.7) 40%,
+    rgba(255, 255, 255, 0.15) 70%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.main-banner-tagline {
+  color: var(--interactive);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.15em;
+}
+
+.main-banner-heading {
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 2.25rem;
+  line-height: 1.15;
+
+  @media screen and (min-width: 768px) {
+    font-size: 3.5rem;
+    line-height: 1.1;
   }
-  h2.h1 {
-    color: var(--primary);
-    letter-spacing: 0;
-    font-size: 2rem;
-    line-height: 2.625rem;
-    @media screen and (min-width: 768px) {
-      font-size: 3.4375rem;
-      line-height: 4.0625rem;
-    }
+}
+
+.main-banner-accent {
+  color: var(--interactive);
+}
+
+.main-banner-subtitle {
+  color: var(--textSubdued);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 480px;
+
+  @media screen and (max-width: 767px) {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -28,10 +66,40 @@
   .header {
     margin-bottom: 0;
   }
+
   .button {
     text-transform: uppercase;
-    font-size: 0.75rem;
-    font-weight: bold;
-    letter-spacing: 0.0625rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.075em;
+    padding: 0.75rem 1.75rem;
+    border-radius: 3px;
+    transition: all 0.25s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .button-primary {
+    background-color: var(--primary);
+    color: #fff;
+    border: 2px solid var(--primary);
+
+    &:hover {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+    }
+  }
+
+  .button-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+
+    &:hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
   }
 }
