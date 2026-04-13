@@ -24,7 +24,7 @@
   "description": "",
   "type": "module",
   "dependencies": {
-    "@evershop/evershop": "2.1.1",
+    "@evershop/evershop": "2.1.2",
     "@evershop/s3_file_storage": "2.1.1",
     "nodemailer": "^6.9.15"
   },
