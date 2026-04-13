@@ -19,8 +19,8 @@ const MainBanner: React.FC = () => {
               sure to deliver the perfect promotion for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a className="button button-primary" href="/products">
-                SHOP NOW
+              <a className="button button-primary" href="/#featured-categories">
+                BROWSE CATEGORIES
               </a>
               <a className="button button-outline" href="/contact">
                 GET A QUOTE

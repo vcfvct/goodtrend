@@ -31,7 +31,7 @@ const CATEGORIES: CategoryItem[] = [
 
 const FeaturedCategories: React.FC = () => {
   return (
-    <section className="featured-categories">
+    <section id="featured-categories" className="featured-categories">
       <div className="page-width">
         <div className="featured-categories-header">
           <span className="featured-categories-label">Browse</span>
