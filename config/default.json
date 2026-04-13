@@ -14,6 +14,12 @@
         "resolve": "extensions/contact",
         "enabled": true,
         "priority": 20
+      },
+      {
+        "name": "better-menu",
+        "resolve": "extensions/better-menu",
+        "enabled": true,
+        "priority": 30
       }
     ]
   },
