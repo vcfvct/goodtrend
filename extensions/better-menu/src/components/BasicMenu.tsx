@@ -205,7 +205,14 @@ export default function BasicMenu({
                       >
                         {item.children.length > 0 ? (
                           <>
-                            <NavigationMenuTrigger className="w-full md:w-auto justify-start md:justify-center bg-transparent hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-open:hover:bg-transparent data-open:focus:bg-transparent data-popup-open:bg-transparent data-popup-open:hover:bg-transparent hover:font-semibold hover:text-primary">
+                            <NavigationMenuTrigger
+                              className="w-full md:w-auto justify-start md:justify-center bg-transparent hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-open:hover:bg-transparent data-open:focus:bg-transparent data-popup-open:bg-transparent data-popup-open:hover:bg-transparent hover:font-semibold hover:text-primary cursor-pointer"
+                              onClick={() => {
+                                if (item.url && item.url !== '#') {
+                                  window.location.href = item.url;
+                                }
+                              }}
+                            >
                               {item.name}
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>
