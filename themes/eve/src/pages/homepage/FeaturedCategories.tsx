@@ -11,7 +11,7 @@ interface CategoryItem {
 const CATEGORIES: CategoryItem[] = [
   {
     title: "Apparel & Gear",
-    image: "/apparel-gear.jpg",
+    image: "/bags.jpg",
     href: "/apparel-gear",
     alt: "Shop Apparel & Gear",
   },
