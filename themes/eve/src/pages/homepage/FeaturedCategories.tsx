@@ -10,10 +10,10 @@ interface CategoryItem {
 
 const CATEGORIES: CategoryItem[] = [
   {
-    title: "Bags",
-    image: "/bags.jpg",
-    href: "/bags",
-    alt: "Shop bags",
+    title: "Apparel & Gear",
+    image: "/apparel-gear.jpg",
+    href: "/apparel-gear",
+    alt: "Shop Apparel & Gear",
   },
   {
     title: "DrinkWare",
